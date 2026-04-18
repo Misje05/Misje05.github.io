@@ -18,7 +18,7 @@ themeToggle.addEventListener("click", () => {
 
 // Liten “typing effect” på tittelen
 const title = document.getElementById("title");
-const text = "Hei 👋";
+const text = "Hi 👋";
 title.textContent = "";
 
 let i = 0;
