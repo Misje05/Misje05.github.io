@@ -1,4 +1,5 @@
 import ParticleHero from "@/components/hub/ParticleHero";
+import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
@@ -6,6 +7,20 @@ const projects = [
     desc: "Training logger with a containerized .NET backend, PostgreSQL, full CRUD via Swagger, and a React frontend.",
     tags: [".NET", "React", "Docker", "PostgreSQL", "Swagger"],
     href: "#",
+  },
+  {
+    title: "Portfolio",
+    desc: "Personal portfolio site built to present my projects, stack, and selected notes.",
+    tags: ["React", "TypeScript", "Tailwind", "GitHub Pages"],
+    href: "https://misje05.github.io/Portfolio/",
+  },
+];
+
+const moreLinks = [
+  {
+    title: "Portfolio",
+    desc: "Back to the full portfolio site.",
+    href: "https://misje05.github.io/Portfolio/",
   },
 ];
 
@@ -130,7 +145,26 @@ const Index = () => {
         </ul>
       </Section>
 
-      {/* Portfolio removed: kept hub-related content only */}
+      {/* More */}
+      <Section id="more" label="More">
+        <div className="grid grid-cols-1 gap-4">
+          {moreLinks.map((link) => (
+            <a
+              key={link.title}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group glass-card p-5 flex items-center justify-between gap-4 hover:glass-glow hover:-translate-y-0.5 transition-all duration-300"
+            >
+              <div>
+                <h3 className="text-base font-semibold mb-1 group-hover:text-primary transition-colors">{link.title}</h3>
+                <p className="text-sm text-muted-foreground">{link.desc}</p>
+              </div>
+              <ArrowUpRight className="h-5 w-5 shrink-0 text-foreground/50 group-hover:text-primary transition-colors" />
+            </a>
+          ))}
+        </div>
+      </Section>
 
       <footer className="max-w-4xl mx-auto px-6 py-10 text-center text-xs font-mono text-muted-foreground">
         © {new Date().getFullYear()} Magnus Misje
