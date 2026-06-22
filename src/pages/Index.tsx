@@ -1,41 +1,88 @@
 import ParticleHero from "@/components/hub/ParticleHero";
 import { ArrowUpRight } from "lucide-react";
 
-const projects = [
+const blogPosts = [
   {
-    title: "TrainingLog",
-    desc: "Training logger with a containerized .NET backend, PostgreSQL, full CRUD via Swagger, and a React frontend.",
-    tags: [".NET", "React", "Docker", "PostgreSQL", "Swagger"],
-    href: "#",
+    date: "Jun 22, 2026",
+    title: "VOLUM — AI workshop with Sparebanken Norge",
+    summary:
+      "Learned to put AI to work: specific prompts dramatically improve answers, cross-referencing documents reveals hidden insights, and always ask Claude to verify its numbers.",
   },
   {
-    title: "Portfolio",
-    desc: "Personal portfolio site built to present my projects, stack, and selected notes.",
-    tags: ["React", "TypeScript", "Tailwind", "GitHub Pages"],
-    href: "https://misje05.github.io/Portfolio/",
+    date: "Jun 2026",
+    title: "Building TrainingLog — fullstack with .NET and React",
+    summary:
+      "Containerized backend with Docker Compose, PostgreSQL and Swagger. Frontend in React with TypeScript.",
   },
+  {
+    date: "May 2026",
+    title: "Norway Fintech Festival YOUNG",
+    summary:
+      "Attended the festival in Bergen. Great conversations with fintech founders and investors.",
+  },
+  {
+    date: "Apr 2026",
+    title: "Web & Mobile specialization confirmed",
+    summary:
+      "Chose my specialization for autumn 2026 — focusing on React Native and modern web development.",
+  },
+];
+
+const path = [
+  {
+    year: "2026 →",
+    title: "Web & Mobile Development",
+    desc: "Starting specialization autumn 2026.",
+    active: true,
+  },
+  {
+    year: "2026",
+    title: "Fintech & Nettworking",
+    desc: "Active in Bergen's fintech scene. Finance Innovation and Norway Fintech Festival.",
+    active: false,
+  },
+  {
+    year: "2025",
+    title: "First of 3 Student Assistant roles in Programming",
+    desc: "Teaching programming to first-year students, and assisting with course development.",
+    active: false,
+  },
+  {
+    year: "2024",
+    title: "Started at HVL Bergen",
+    desc: "Bachelor's in Data Engineering.",
+    active: false,
+  },
+];
+
+const stack = [
+  { category: "Backend", items: ["C# / .NET", "PostgreSQL", "Docker"] },
+  { category: "Frontend", items: ["React", "TypeScript", "Tailwind CSS"] },
+  { category: "Tools", items: ["Git", "GitHub Copilot", "Swagger"] },
 ];
 
 const moreLinks = [
   {
     title: "Portfolio",
-    desc: "Back to the full portfolio site.",
+    desc: "A deeper look at my projects, technologies and work history.",
     href: "https://misje05.github.io/Portfolio/",
   },
 ];
 
-const stack = ["C# / .NET", "React", "TypeScript", "PostgreSQL", "Docker", "Git", "GitHub Copilot"];
-
-const notes = [
-  { date: "Jun 2025", title: "BFF-mønsteret i praksis" },
-  { date: "Mai 2025", title: "Hva jeg lærte av å containerisere .NET med Docker Compose" },
-  { date: "Apr 2025", title: "Et innblikk i Chord DHT" },
-];
-
-const Section = ({ id, label, children }: { id: string; label: string; children: React.ReactNode }) => (
-  <section id={id} className="max-w-4xl mx-auto px-6 py-20">
+const Section = ({
+  id,
+  label,
+  children,
+}: {
+  id: string;
+  label: string;
+  children: React.ReactNode;
+}) => (
+  <section id={id} className="max-w-5xl mx-auto px-6 py-20">
     <div className="flex items-baseline gap-3 mb-8">
-      <span className="text-xs font-mono uppercase tracking-widest text-primary">{label}</span>
+      <span className="text-xs font-mono uppercase tracking-widest text-primary">
+        {label}
+      </span>
       <div className="h-px flex-1 bg-border" />
     </div>
     {children}
@@ -52,19 +99,25 @@ const Index = () => {
       {/* Hero */}
       <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
         <ParticleHero />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background pointer-events-none" />
-        <div className="relative z-10 text-center px-6">
+        {/* Top vignette */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background/30 to-transparent pointer-events-none" />
+        {/* Bottom blend into sections — tall fade so the join is invisible */}
+        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 glass-pill rounded-full px-4 py-1.5 mb-8">
             <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px_hsl(var(--primary))]" />
             <p className="text-[11px] md:text-xs font-mono tracking-widest text-foreground/70 uppercase">
-              misje05.github.io
+              Data Engineering Student · HVL Bergen
             </p>
           </div>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight mb-6 text-gradient-glow">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight mb-4 text-gradient-glow pb-2">
             Magnus Misje
           </h1>
-          <p className="text-base md:text-xl text-muted-foreground mb-12 font-light tracking-wide">
-            Data engineering · HVL Bergen · Fintech
+          <p className="text-base md:text-lg text-muted-foreground mb-3 font-light tracking-wide">
+            Building fullstack applications with .NET and React.
+          </p>
+          <p className="text-sm text-muted-foreground/60 mb-12 font-light">
+            Active in Bergen's fintech scene.
           </p>
           <button
             onClick={scrollDown}
@@ -84,65 +137,89 @@ const Index = () => {
               <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400 shadow-[0_0_10px_rgba(74,222,128,0.8)]" />
             </span>
-            <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Live</span>
+            <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+              Active
+            </span>
           </div>
           <p className="text-base md:text-lg leading-relaxed text-foreground/90">
-            Finishing 4th semester at HVL Bergen. Starting my Web & Mobile Development specialization in autumn 2026.
-            Building fullstack projects with .NET and React. Active in Bergen's fintech scene — Finance Innovation
-            events and Norway Fintech Festival YOUNG.
+            Finished my 4th semester at HVL Bergen studying Data Engineering. Starting a Web & Mobile Development 
+            specialization in autumn 2026. Building fullstack projects 
+            with .NET and React, and active in Bergen's fintech scene through VOLUM Workshop 
+            and Norway Fintech Festival YOUNG.
           </p>
         </div>
       </Section>
 
-      {/* Projects */}
-      <Section id="projects" label="Projects">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {projects.map((p) => (
-            <a
-              key={p.title}
-              href={p.href}
-              target={p.href.startsWith("http") ? "_blank" : undefined}
-              rel="noopener noreferrer"
-              className="group glass-card p-6 hover:glass-glow hover:-translate-y-1 transition-all duration-500 flex flex-col"
+      {/* Blog */}
+      <Section id="blog" label="What I'm working on">
+        <div className="space-y-4">
+          {blogPosts.map((post) => (
+            <div
+              key={post.title}
+              className="glass-card p-6 hover:glass-glow transition-all duration-500"
             >
-              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">{p.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">{p.desc}</p>
-              <div className="flex flex-wrap gap-1.5">
-                {p.tags.map((t) => (
-                  <span key={t} className="text-[11px] font-mono text-foreground/70 glass-pill rounded-full px-2.5 py-0.5">
-                    {t}
-                  </span>
-                ))}
+              <div className="flex flex-col md:flex-row md:items-baseline gap-1 md:gap-4 mb-2">
+                <span className="text-xs font-mono text-primary shrink-0">{post.date}</span>
+                <h3 className="text-base font-semibold text-foreground/90">{post.title}</h3>
               </div>
-            </a>
+              <p className="text-sm text-muted-foreground leading-relaxed">{post.summary}</p>
+            </div>
           ))}
+        </div>
+      </Section>
+
+      {/* Path */}
+      <Section id="path" label="My path">
+        <div className="relative">
+          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border" />
+          <div className="space-y-8">
+            {path.map((step) => (
+              <div key={step.year} className="relative pl-8">
+                <div
+                  className={`absolute left-0 top-1.5 h-3.5 w-3.5 rounded-full border-2 ${
+                    step.active
+                      ? "border-primary bg-primary/30 shadow-[0_0_10px_hsl(var(--primary)/0.5)]"
+                      : "border-border bg-background"
+                  }`}
+                />
+                <div className="flex flex-col md:flex-row md:items-baseline gap-1 md:gap-4 mb-1">
+                  <span
+                    className={`text-xs font-mono shrink-0 ${
+                      step.active ? "text-primary" : "text-muted-foreground"
+                    }`}
+                  >
+                    {step.year}
+                  </span>
+                  <h3 className="text-base font-semibold text-foreground/90">{step.title}</h3>
+                </div>
+                <p className="text-sm text-muted-foreground">{step.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </Section>
 
       {/* Stack */}
       <Section id="stack" label="Stack">
-        <div className="flex flex-wrap gap-2.5">
-          {stack.map((s) => (
-            <span
-              key={s}
-              className="px-4 py-1.5 rounded-full glass-pill text-sm text-foreground/80 hover:text-primary hover:scale-[1.04] transition-all duration-300"
-            >
-              {s}
-            </span>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {stack.map((group) => (
+            <div key={group.category} className="glass-card p-5">
+              <h3 className="text-xs font-mono uppercase tracking-wider text-primary mb-4">
+                {group.category}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <span
+                    key={item}
+                    className="px-3 py-1 rounded-full glass-pill text-sm text-foreground/80 hover:text-primary hover:scale-[1.04] transition-all duration-300"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
-      </Section>
-
-      {/* Notes */}
-      <Section id="notes" label="Notes">
-        <ul className="divide-y divide-border">
-          {notes.map((n) => (
-            <li key={n.title} className="py-4 flex flex-col md:flex-row md:items-baseline gap-1 md:gap-6 group cursor-pointer">
-              <span className="text-xs font-mono text-muted-foreground md:w-28 shrink-0">{n.date}</span>
-              <span className="text-base text-foreground/90 group-hover:text-primary transition-colors">{n.title}</span>
-            </li>
-          ))}
-        </ul>
       </Section>
 
       {/* More */}
@@ -157,7 +234,9 @@ const Index = () => {
               className="group glass-card p-5 flex items-center justify-between gap-4 hover:glass-glow hover:-translate-y-0.5 transition-all duration-300"
             >
               <div>
-                <h3 className="text-base font-semibold mb-1 group-hover:text-primary transition-colors">{link.title}</h3>
+                <h3 className="text-base font-semibold mb-1 group-hover:text-primary transition-colors">
+                  {link.title}
+                </h3>
                 <p className="text-sm text-muted-foreground">{link.desc}</p>
               </div>
               <ArrowUpRight className="h-5 w-5 shrink-0 text-foreground/50 group-hover:text-primary transition-colors" />
@@ -166,7 +245,7 @@ const Index = () => {
         </div>
       </Section>
 
-      <footer className="max-w-4xl mx-auto px-6 py-10 text-center text-xs font-mono text-muted-foreground">
+      <footer className="max-w-5xl mx-auto px-6 py-10 text-center text-xs font-mono text-muted-foreground">
         © {new Date().getFullYear()} Magnus Misje
       </footer>
     </main>
