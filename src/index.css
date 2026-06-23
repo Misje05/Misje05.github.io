@@ -55,6 +55,25 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(240 22% 22%) transparent;
+  }
+
+  html::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: hsl(240 22% 22%);
+    border-radius: 9999px;
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    background: hsl(239 84% 67% / 0.5);
   }
 
   * {
@@ -260,4 +279,27 @@
   .stagger-4 { animation-delay: 0.4s; }
   .stagger-5 { animation-delay: 0.5s; }
   .stagger-6 { animation-delay: 0.6s; }
+
+  .theme-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(240 22% 22%) transparent;
+  }
+
+  .theme-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .theme-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .theme-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(240 22% 22%);
+    border-radius: 9999px;
+    transition: background 0.2s;
+  }
+
+  .theme-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(239 84% 67% / 0.5);
+  }
 }

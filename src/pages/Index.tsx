@@ -4,27 +4,45 @@ import { ArrowUpRight } from "lucide-react";
 const blogPosts = [
   {
     date: "Jun 22, 2026",
-    title: "VOLUM — AI workshop with Sparebanken Norge",
+    title: "VOLUM - AI workshop with Sparebanken Norge",
     summary:
-      "Learned to put AI to work: specific prompts dramatically improve answers, cross-referencing documents reveals hidden insights, and always ask Claude to verify its numbers.",
+      "Learned to build practical AI tools from scratch: explored how instructions shape Claude's behavior across different tasks, and built a meeting scheduling assistant as a team. Left with a clearer picture of how fast the field is moving and have since started using Claude Cowork for agents, debugging, and development.",
   },
   {
-    date: "Jun 2026",
-    title: "Building TrainingLog — fullstack with .NET and React",
+    date: "May 2026",
+    title: "Starting TrainingLog - fullstack with .NET and React",
     summary:
       "Containerized backend with Docker Compose, PostgreSQL and Swagger. Frontend in React with TypeScript.",
   },
   {
     date: "May 2026",
+    title: "Hub project: Personal website",
+    summary:
+      "Built a personal website with React, TypeScript and Tailwind CSS. Added a blog, timeline and portfolio section to showcase my work.",
+  },
+  {
+    date: "Apr 2026",
     title: "Norway Fintech Festival YOUNG",
     summary:
       "Attended the festival in Bergen. Great conversations with fintech founders and investors.",
   },
   {
     date: "Apr 2026",
+    title: "Portfolio project: Personal website",
+    summary:
+      "Built a personal website with React, TypeScript and Tailwind CSS. Added a blog, timeline and portfolio section to showcase my work.",
+  },
+  {
+    date: "Mar 2026",
     title: "Web & Mobile specialization confirmed",
     summary:
-      "Chose my specialization for autumn 2026 — focusing on React Native and modern web development.",
+      "Chose my specialization for autumn 2026 - digging deep into Web API and JavaScript.",
+  },
+  {
+    date: "Feb 2026",
+    title: "The Application Period",
+    summary:
+      "Applying for every available summer internship resulting in a reality check I needed.",
   },
 ];
 
@@ -37,8 +55,14 @@ const path = [
   },
   {
     year: "2026",
-    title: "Fintech & Nettworking",
-    desc: "Active in Bergen's fintech scene. Finance Innovation and Norway Fintech Festival.",
+    title: "Nettworking",
+    desc: "Attending Norway Fintech Festival YOUNG and VOLUM Workshop to connect with fintech developers.",
+    active: false,
+  },
+  {
+    year: "2026",
+    title: "Creating my own projects",
+    desc: "Starting small with portfolio projects, and gradually building larger fullstack applications.",
     active: false,
   },
   {
@@ -64,7 +88,7 @@ const stack = [
 const moreLinks = [
   {
     title: "Portfolio",
-    desc: "A deeper look at my projects, technologies and work history.",
+    desc: "A deeper look at my projects, technologies and work experience.",
     href: "https://misje05.github.io/Portfolio/",
   },
 ];
@@ -90,8 +114,11 @@ const Section = ({
 );
 
 const Index = () => {
-  const scrollDown = () => {
+  const scrollDownNow = () => {
     document.getElementById("now")?.scrollIntoView({ behavior: "smooth" });
+  };
+  const scrollDownPortfolio = () => {
+    document.getElementById("more")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -101,8 +128,6 @@ const Index = () => {
         <ParticleHero />
         {/* Top vignette */}
         <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background/30 to-transparent pointer-events-none" />
-        {/* Bottom blend into sections — tall fade so the join is invisible */}
-        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 glass-pill rounded-full px-4 py-1.5 mb-8">
             <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px_hsl(var(--primary))]" />
@@ -120,10 +145,17 @@ const Index = () => {
             Active in Bergen's fintech scene.
           </p>
           <button
-            onClick={scrollDown}
-            className="group inline-flex items-center gap-2 px-7 py-3 glass-pill rounded-full text-foreground/90 hover:text-primary hover:scale-[1.03] transition-all duration-300"
+            onClick={scrollDownNow}
+            className="group inline-flex items-center gap-2 px-7 py-3 mr-3 glass-pill rounded-full text-foreground/90 hover:text-primary hover:scale-[1.03] transition-all duration-300"
           >
             <span className="text-sm font-medium">Explore</span>
+            <span className="transition-transform group-hover:translate-y-0.5">↓</span>
+          </button>
+          <button
+            onClick={scrollDownPortfolio}
+            className="group inline-flex items-center gap-2 px-7 py-3 glass-pill rounded-full text-foreground/90 hover:text-primary hover:scale-[1.03] transition-all duration-300"
+          >
+            <span className="text-sm font-medium">Portfolio</span>
             <span className="transition-transform group-hover:translate-y-0.5">↓</span>
           </button>
         </div>
@@ -152,7 +184,10 @@ const Index = () => {
 
       {/* Blog */}
       <Section id="blog" label="What I'm working on">
-        <div className="space-y-4">
+        <div
+          className="space-y-4 overflow-y-auto pr-2 theme-scrollbar"
+          style={{ maxHeight: "470px" }}
+        >
           {blogPosts.map((post) => (
             <div
               key={post.title}
