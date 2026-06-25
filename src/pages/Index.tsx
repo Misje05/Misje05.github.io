@@ -132,7 +132,7 @@ const Index = () => {
           <div className="inline-flex items-center gap-2 glass-pill rounded-full px-4 py-1.5 mb-8">
             <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px_hsl(var(--primary))]" />
             <p className="text-[11px] md:text-xs font-mono tracking-widest text-foreground/70 uppercase">
-              Data Engineering Student · HVL Bergen
+              Software Engineering Student · HVL Bergen
             </p>
           </div>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight mb-4 text-gradient-glow pb-2">
@@ -264,8 +264,6 @@ const Index = () => {
             <a
               key={link.title}
               href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
               className="group glass-card p-5 flex items-center justify-between gap-4 hover:glass-glow hover:-translate-y-0.5 transition-all duration-300"
             >
               <div>
