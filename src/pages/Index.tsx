@@ -3,10 +3,10 @@ import { ArrowUpRight } from "lucide-react";
 
 const blogPosts = [
   {
-    date: "Jun 22, 2026",
+    date: "Jun 2026",
     title: "VOLUM - AI workshop with Sparebanken Norge",
     summary:
-      "Learned to build practical AI tools from scratch: explored how instructions shape Claude's behavior across different tasks, and built a meeting scheduling assistant as a team. Left with a clearer picture of how fast the field is moving and have since started using Claude Cowork for agents, debugging, and development.",
+      "Built practical AI tools, explored prompt engineering, and developed a meeting scheduling assistant. Now using Claude for agents and development.",
   },
   {
     date: "May 2026",
@@ -48,16 +48,22 @@ const blogPosts = [
 
 const path = [
   {
-    year: "2026 →",
+    year: "2026",
+    title: "Autumn Internship at Sparebanken Norge",
+    desc: "Practical experience in web development at Sparebanken Norge.",
+    active: false,
+  },
+  {
+    year: "2026",
     title: "Web & Mobile Development",
     desc: "Starting specialization autumn 2026.",
-    active: true,
+    active: false,
   },
   {
     year: "2026",
     title: "Nettworking",
     desc: "Attending Norway Fintech Festival YOUNG and VOLUM Workshop to connect with fintech developers.",
-    active: false,
+    active: true,
   },
   {
     year: "2026",
