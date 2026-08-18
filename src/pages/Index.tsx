@@ -51,19 +51,19 @@ const path = [
     year: "2026",
     title: "Autumn Internship at Sparebanken Norge",
     desc: "Practical experience in web development at Sparebanken Norge.",
-    active: false,
+    active: true,
   },
   {
     year: "2026",
     title: "Web & Mobile Development",
     desc: "Starting specialization autumn 2026.",
-    active: false,
+    active: true,
   },
   {
     year: "2026",
     title: "Nettworking",
     desc: "Attending Norway Fintech Festival YOUNG and VOLUM Workshop to connect with fintech developers.",
-    active: true,
+    active: false,
   },
   {
     year: "2026",
@@ -180,10 +180,9 @@ const Index = () => {
             </span>
           </div>
           <p className="text-base md:text-lg leading-relaxed text-foreground/90">
-            Finished my 4th semester at HVL Bergen studying Data Engineering. Starting a Web & Mobile Development 
-            specialization in autumn 2026. Building fullstack projects 
-            with .NET and React, and active in Bergen's fintech scene through VOLUM Workshop 
-            and Norway Fintech Festival YOUNG.
+            Starting my 5th semester at HVL Bergen studying Software Engineering with specialization in web and mobile development. 
+            Building fullstack projects with .NET and React, and starting to realise that my schedule is packed way to much when 
+            combining studies, autumn internship, student assistant work, and personal projects :)
           </p>
         </div>
       </Section>
