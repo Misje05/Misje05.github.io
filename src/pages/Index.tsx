@@ -3,6 +3,30 @@ import { ArrowUpRight } from "lucide-react";
 
 const blogPosts = [
   {
+    date: "Sep 2026",
+    title: "Git - NerdSchool",
+    summary:
+      "Attended a Git course with NerdSchool to sharpen version control habits, improve collaboration workflows, and build a stronger foundation for modern software development.",
+  },
+  {
+    date: "Sep 2026",
+    title: "ITxBergen - Networking with IT companies",
+    summary:
+      "Attended ITxBergen to connect with people in the tech community, learn from experienced developers, and stay close to what is happening in Bergen's software ecosystem.",
+  },
+  {
+    date: "Sep 2026",
+    title: "VOLUM - What we can learn from the elite sport",
+    summary:
+      "Returning to VOLUM workshop in September to explore how mental- performance, discipline, and team dynamics from elite sport can improve software engineering and collaboration.",
+  },
+  {
+    date: "Aug 2026",
+    title: "Starting my internship at Sparebanken Norge",
+    summary:
+      "I began my internship at Sparebanken Norge and started learning through real-world development work, team collaboration, and practical problem solving in a banking environment.",
+  },
+  {
     date: "Jun 2026",
     title: "VOLUM - AI workshop with Sparebanken Norge",
     summary:
@@ -51,19 +75,19 @@ const path = [
     year: "2026",
     title: "Autumn Internship at Sparebanken Norge",
     desc: "Practical experience in web development at Sparebanken Norge.",
-    active: false,
+    active: true,
   },
   {
     year: "2026",
     title: "Web & Mobile Development",
     desc: "Starting specialization autumn 2026.",
-    active: false,
+    active: true,
   },
   {
     year: "2026",
     title: "Nettworking",
     desc: "Attending Norway Fintech Festival YOUNG and VOLUM Workshop to connect with fintech developers.",
-    active: true,
+    active: false,
   },
   {
     year: "2026",
@@ -176,14 +200,15 @@ const Index = () => {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400 shadow-[0_0_10px_rgba(74,222,128,0.8)]" />
             </span>
             <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
-              Active
+              README.md
             </span>
           </div>
           <p className="text-base md:text-lg leading-relaxed text-foreground/90">
-            Finished my 4th semester at HVL Bergen studying Data Engineering. Starting a Web & Mobile Development 
-            specialization in autumn 2026. Building fullstack projects 
-            with .NET and React, and active in Bergen's fintech scene through VOLUM Workshop 
-            and Norway Fintech Festival YOUNG.
+            5th-semester Data Engineering student at HVL, specializing in Web & Mobile Development. 
+            Gaining hands-on industry experience at Sparebanken Norge, building real-world solutions 
+            alongside an experienced development team. Balancing studies, multiple part-time roles and
+            a social file while maintaining strong academic performance has taught me to prioritize, 
+            adapt, and manage multiple responsibilities.
           </p>
         </div>
       </Section>
