@@ -204,7 +204,7 @@ const Index = () => {
             </span>
           </div>
           <p className="text-base md:text-lg leading-relaxed text-foreground/90">
-            5th-semester Data Engineering student at HVL, specializing in Web & Mobile Development. 
+            Starting my 5th-semester Data Engineering student at HVL, specializing in Web & Mobile Development. 
             Gaining hands-on industry experience at Sparebanken Norge, building real-world solutions 
             alongside an experienced development team. Balancing studies, multiple part-time roles and
             a social file while maintaining strong academic performance has taught me to prioritize, 
